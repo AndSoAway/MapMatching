@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <vector>
+#include <string>
 #include "node.hpp"
 #include "edge.hpp"
 #include "constNum.hpp"
