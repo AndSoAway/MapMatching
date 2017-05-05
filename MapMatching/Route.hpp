@@ -20,9 +20,10 @@ struct Route{
         for(int i = 0; i < T; i++)
             rank[i] = m[i];
     }
-    Route(){}
+    Route(){rank = NULL;}
     ~Route(){
-        delete []rank;
+        if(rank != NULL)
+            delete []rank;
     }
 };
 

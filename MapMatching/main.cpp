@@ -19,9 +19,9 @@ extern std::vector< std::vector<EdgeDis> > candidateEdge;
 
 int main() {
     std::cout << "Hello, World!\n";
-    Route route;
+  //  Route route;
     
-    RouteWithSima routeWithSima(&route);
+    //RouteWithSima routeWithSima(&route);
     Map* map = new Map();
     map->fileAddNode("BJ.cnode");
     map->fileAddEdge("BJ.edge");
