@@ -20,10 +20,11 @@ using namespace std;
 void testSingleCandidate(Map* map);
 
 int main() {
-    std::cout << "Hello, World!\n";
+    cout << "Hello, World!\n";
     Map* map = new Map();
     map->fileAddNode("BJ.cnode");
     map->fileAddEdge("BJ.edge");
+    cout << "End Insert Map" << endl;
     testSingleCandidate(map);
     return 0;
 }
