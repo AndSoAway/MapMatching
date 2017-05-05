@@ -8,6 +8,15 @@
 
 #ifndef point_h
 #define point_h
+struct DoublePos{
+    double lat, lng;
+    static double getTwoPosDis(DoublePos a, DoublePos b);
+};
+
+
+struct IntPos{
+    int x, y;
+};
 
 
 #endif /* point_h */
