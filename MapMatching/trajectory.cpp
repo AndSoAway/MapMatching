@@ -10,6 +10,7 @@
 #include <vector>
 #include <cmath>
 #include <unordered_map>
+#include <iostream>
 #include <algorithm>
 #include <list>
 #include <string>
@@ -327,6 +328,7 @@ void Trajectory::fileAddPos(string file){//从文件中添加
         fgets(line, 100, fs);
     }
     fclose(fs);
+    cout << "stop addPos" << endl;
     T = (int)tra.size();
     tempRoute = new int[T];
     for(int i = 0; i < T - 1; i++){

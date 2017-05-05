@@ -35,16 +35,23 @@ void testSingleCandidate(Map* map) {
     double notSingleCandidate = 0;
     double maxPoint = -1;
     double minPoint = 10000;
+    double totalPoint = 0;
     double averagePoint = 0;
     for (int i = 1; i <= fileNumber; ++i) {
         string filePath = "./trajfile/" + to_string(i) + ".csv";
         Trajectory test(map);
         test.fileAddPos(filePath.c_str());
+        int pointSize = test.getTraSize();
+        maxPoint = maxPoint < pointSize ? pointSize : maxPoint;
+        minPoint = minPoint > pointSize ? pointSize : minPoint;
+        totalPoint += pointSize;
         
         test.generateCandidateEdge();
         useSingleCandidate += test.getCandidateEdgeNumberSC();
         notSingleCandidate += test.getOriCandidateNumber();
     }
+    averagePoint = totalPoint / fileNumber;
     cout << "SC: " << useSingleCandidate << endl;
     cout << "Ori: " << notSingleCandidate << endl;
+    cout << "MaxPoint: " << maxPoint << "MinPoint: " << minPoint << "averagePoint: " << averagePoint << endl;
 }
