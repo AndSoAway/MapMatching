@@ -1,5 +1,5 @@
-main: main.cpp trajectory.o
-	g++ -std=c++11 -o main main.cpp trajectory.o 
+main: main.cpp trajectory.o distance.o Route.o trajectory_generated.o TR_SIM.o
+	g++ -std=c++11 -o main main.cpp trajectory.o distance.o Route.o trajectory_generated.o TR_SIM.o
 distance.o: distance.cpp distance.hpp
 	g++ -std=c++11 -c distance.cpp
 Route.o: Route.cpp Route.hpp
