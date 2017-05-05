@@ -10,5 +10,13 @@
 #define node_hpp
 
 #include <stdio.h>
+class Node{
+public:
+    double lat, lng;
+    int rank;
+public:
+    Node(){}
+    ~Node(){}
+};
 
 #endif /* node_hpp */

@@ -11,4 +11,19 @@
 
 #include <stdio.h>
 
+struct Route{
+    int* rank;
+    void init(int T){
+        rank = new int[T];
+    }
+    void input(int* m, int T){
+        for(int i = 0; i < T; i++)
+            rank[i] = m[i];
+    }
+    Route(){}
+    ~Route(){
+        delete []rank;
+    }
+};
+
 #endif /* Route_hpp */

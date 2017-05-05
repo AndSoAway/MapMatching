@@ -11,4 +11,12 @@
 
 #include <stdio.h>
 
+class Edge{
+public:
+    double beginLat, beginLng, endLat, endLng;
+    int begin, end, rank, length;
+public:
+    Edge(){}
+    ~Edge(){}
+};
 #endif /* edge_hpp */

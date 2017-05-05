@@ -10,5 +10,12 @@
 #define RouteWithSima_hpp
 
 #include <stdio.h>
+#include "Route.hpp"
 
+struct RouteWithSima{
+    Route* m;
+    double simA;
+    RouteWithSima(Route* a);
+    ~RouteWithSima(){}
+};
 #endif /* RouteWithSima_hpp */

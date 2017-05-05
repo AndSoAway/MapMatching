@@ -11,4 +11,11 @@
 
 #include <stdio.h>
 
+#define PI 3.14159265
+#define EARTH_RADIUS 6378.137
+
+double rad(double d);
+
+double distance2meter(double lat1, double lng1, double lat2, double lng2);
+
 #endif /* distance_hpp */

@@ -10,5 +10,24 @@
 #define trajectory_generated_hpp
 
 #include <stdio.h>
+#include <vector>
+#include "point.h"
 
+
+struct PosWithRank{
+    DoublePos pos;
+    int rank;
+};
+
+class GenerateTrajectory{
+    std::vector<PosWithRank> point;
+public:
+    GenerateTrajectory();
+    ~GenerateTrajectory();
+    void fileAddPos(std::string);
+    friend class TR_SIM;
+    friend class EarlyTermination;
+    friend class CutTraj;
+    friend class FilterTree;
+};
 #endif /* trajectory_generated_hpp */
