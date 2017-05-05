@@ -10,6 +10,7 @@
 #include <vector>
 #include <cmath>
 #include <unordered_map>
+#include <algorithm>
 #include <list>
 #include <string>
 #include <fstream>
