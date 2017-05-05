@@ -7,9 +7,38 @@
 //
 
 #include <iostream>
+#include "trajectory.h"
+#include "Route.hpp"
+#include "RouteWithSima.hpp"
+#include "map.hpp"
+#include "trajectory.h"
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
+using namespace std;
+
+extern std::vector< std::vector<EdgeDis> > candidateEdge;
+/*
+int main() {
     std::cout << "Hello, World!\n";
+    Route route;
+    
+    RouteWithSima routeWithSima(&route);
+    Map* map = new Map();
+    map->fileAddNode("BJ.cnode");
+    map->fileAddEdge("BJ.edge");
+    
+    
+    Trajectory test(map);
+    test.fileAddPos("testTraj.txt");
+    test.generateCandidateEdge();
+    int canSize = (int)candidateEdge.size();
+    cout << canSize << endl;
     return 0;
+}
+*/
+
+int main() {
+    cout << "Hello " << endl;
+    for (int i = 0; i < 100; ++i) {
+        cout << i << endl;
+    }
 }
