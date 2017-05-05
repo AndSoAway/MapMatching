@@ -16,7 +16,7 @@
 using namespace std;
 
 extern std::vector< std::vector<EdgeDis> > candidateEdge;
-/*
+
 int main() {
     std::cout << "Hello, World!\n";
     Route route;
@@ -33,12 +33,4 @@ int main() {
     int canSize = (int)candidateEdge.size();
     cout << canSize << endl;
     return 0;
-}
-*/
-
-int main() {
-    cout << "Hello " << endl;
-    for (int i = 0; i < 100; ++i) {
-        cout << i << endl;
-    }
 }
