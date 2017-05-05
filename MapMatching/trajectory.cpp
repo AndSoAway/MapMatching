@@ -314,17 +314,19 @@ void Trajectory::addPos(DoublePos pos, int direct){
 }
 
 void Trajectory::fileAddPos(string file){//从文件中添加
-    std::ifstream fin;
+    FILE* fs = fopen(file.c_str(), "rb");
     printf("open file %s\n", file.c_str());
-    fin.open(file.c_str());
     double lat, lng;
-    int direct;
-    while(fin >> lat >> lng >> direct){
+    double direct;
+    char line[100];
+    fgets(line, 100, fs);
+    while (sscanf(line, "%lf %lf %lf", &lat, &lng, &direct) > 0) {
         DoublePos temp;
         temp.lat = lat, temp.lng = lng;
         addPos(temp, direct);
+        fgets(line, 100, fs);
     }
-    fin.close();
+    fclose(fs);
     T = (int)tra.size();
     tempRoute = new int[T];
     for(int i = 0; i < T - 1; i++){
