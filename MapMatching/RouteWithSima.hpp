@@ -11,11 +11,12 @@
 
 #include <stdio.h>
 #include "Route.hpp"
+#include "trajectory.h"
 
 struct RouteWithSima{
     Route* m;
     double simA;
-    RouteWithSima(Route* a);
+    RouteWithSima(Trajectory* traj, Route* a);
     ~RouteWithSima(){}
 };
 #endif /* RouteWithSima_hpp */

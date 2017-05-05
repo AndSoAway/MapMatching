@@ -45,10 +45,6 @@ bool cmp3(EdgeDis a, EdgeDis b){
 bool cmp4(EdgeDis a, EdgeDis b){
     return a.edge[0].beginLng > b.edge[0].beginLng;
 }
-
-std::vector<std::vector<EdgeDis> > candidateEdge;//候选路径上的小边，如果里面的vector大小不为一，代表有多种选择
-list<Route*> candidateR;
-
 int Trajectory::convertPosToDirect(double lat1, double lng1, double lat2, double lng2){//得到一个有向的边与北方的夹角，0-360
     if(lat1 == lat2 && lng1 == lng2)
         return -1;//重合，非法数据
@@ -244,6 +240,11 @@ void Trajectory::generateOnePointCandidateEdge(int rank){//生成一个点附近
     int sizeC = (int)candidateEdge[rank].size();
     sort(candidateEdge[rank].begin(), candidateEdge[rank].begin() + sizeC, cmpEdgeDis);
     
+    
+    int finalSize = sizeC > S ? S : sizeC;
+    oriCandidateEdgeNumber[rank] = finalSize;
+    CandidateEdgeNumberSC[rank] = finalSize;
+    
     if(ifAllEdgeAroundPointIsTheSameRoad(rank)){//如果满足可以按全部为一条路剪枝的话，便剪枝
         int candidateSize = (int)candidateEdge[rank].size();
         for(int i = 1; i < candidateSize; i++){
@@ -252,13 +253,29 @@ void Trajectory::generateOnePointCandidateEdge(int rank){//生成一个点附近
         for(int i = candidateSize - 1; i >= 1; i--){
             candidateEdge[rank].erase(candidateEdge[rank].begin() + i);
         }
+        CandidateEdgeNumberSC[rank] = 1;
         return;
     }
     
-    int finalSize = sizeC > S ? S : sizeC;//不能剪枝就正常处理
     for(int i = sizeC - 1; i >= finalSize; i--){
         candidateEdge[rank].erase(candidateEdge[rank].begin() + i);
     }
+}
+
+int Trajectory::getCandidateEdgeNumberSC() {
+    double routeSize = 1;
+    for (int i = 0; i < CandidateEdgeNumberSC.size(); ++i) {
+        routeSize *= CandidateEdgeNumberSC[i];
+    }
+    return routeSize;
+}
+
+int Trajectory::getOriCandidateNumber() {
+    double routeSize = 1;
+    for (int i = 0; i < oriCandidateEdgeNumber.size(); ++i) {
+        routeSize *= oriCandidateEdgeNumber[i];
+    }
+    return routeSize;
 }
 
 void Trajectory::generateCandidateEdge(){//生成全部点的候选边
@@ -312,6 +329,8 @@ void Trajectory::fileAddPos(string file){//从文件中添加
     for(int i = 0; i < T - 1; i++){
         lenT += distance2meter(tra[i].pos.lat, tra[i].pos.lng, tra[i + 1].pos.lat, tra[i + 1].pos.lng);
     }
+    oriCandidateEdgeNumber = std::vector<int>(T, 0);
+    CandidateEdgeNumberSC = std::vector<int>(T, 0);
     //    scanf("%lf %lf", &lat, &lng);
     //    fdopen(origin_stdin, "r");
 }
