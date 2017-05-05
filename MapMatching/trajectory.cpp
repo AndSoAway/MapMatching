@@ -315,6 +315,7 @@ void Trajectory::addPos(DoublePos pos, int direct){
 
 void Trajectory::fileAddPos(string file){//从文件中添加
     std::ifstream fin;
+    printf("open file %s\n", file.c_str());
     fin.open(file.c_str());
     double lat, lng;
     int direct;
