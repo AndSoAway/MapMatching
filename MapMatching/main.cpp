@@ -29,12 +29,17 @@ int main() {
 }
 
 void testSingleCandidate(Map* map) {
-    vector<string> trajectory_files;
+    int fileNumber = 100000;
     double useSingleCandidate = 0;
     double notSingleCandidate = 0;
-    for (int i = 0; i < trajectory_files.size(); ++i) {
+    double maxPoint = -1;
+    double minPoint = 10000;
+    double averagePoint = 0;
+    for (int i = 1; i <= fileNumber; ++i) {
+        string filePath = "./trajfile/" + to_string(i) + ".csv";
         Trajectory test(map);
-        test.fileAddPos("testTraj.txt");
+        test.fileAddPos(filePath.c_str());
+        
         test.generateCandidateEdge();
         useSingleCandidate += test.getCandidateEdgeNumberSC();
         notSingleCandidate += test.getOriCandidateNumber();
