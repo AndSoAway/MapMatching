@@ -16,3 +16,5 @@ map.o: map.cpp map.hpp
 	g++ -std=c++11 -c map.cpp
 RouteWithSima.o: RouteWithSima.cpp RouteWithSima.hpp
 	g++ -std=c++11 -c RouteWithSima.cpp
+clean:
+	rm -rf *.o
