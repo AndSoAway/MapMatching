@@ -322,7 +322,7 @@ void Trajectory::fileAddPos(string file){//从文件中添加
     char line[100];
     fgets(line, 100, fs);
     while (sscanf(line, "%lf %lf %lf", &lat, &lng, &direct) > 0) {
-        printf("%lf %lf %lf", lat, lng, direct);
+        printf("%lf %lf %lf\n", lat, lng, direct);
         DoublePos temp;
         temp.lat = lat, temp.lng = lng;
         addPos(temp, direct);
@@ -333,12 +333,14 @@ void Trajectory::fileAddPos(string file){//从文件中添加
     fclose(fs);
     cout << "stop addPos" << endl;
     T = (int)tra.size();
+    cout << T << endl;
     tempRoute = new int[T];
     for(int i = 0; i < T - 1; i++){
         lenT += distance2meter(tra[i].pos.lat, tra[i].pos.lng, tra[i + 1].pos.lat, tra[i + 1].pos.lng);
     }
     oriCandidateEdgeNumber = std::vector<int>(T, 0);
     CandidateEdgeNumberSC = std::vector<int>(T, 0);
+    cout << "End" << endl;
     //    scanf("%lf %lf", &lat, &lng);
     //    fdopen(origin_stdin, "r");
 }
