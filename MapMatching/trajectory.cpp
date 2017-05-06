@@ -181,12 +181,12 @@ bool Trajectory::ifAllEdgeAroundPointIsTheSameRoad(int rank){//判断所有的�
 }
 
 void Trajectory::generateOnePointCandidateEdge(int rank){//生成一个点附近的候选集
-    cout << "Generate" << rank << endl;
+    //cout << "Generate" << rank << endl;
     vector<IntPos> candidateGrid;
     candidateGrid.clear();
-    cout << "tra: " << tra[rank].pos.lat << ", " << tra[rank].pos.lng << endl;
+    //cout << "tra: " << tra[rank].pos.lat << ", " << tra[rank].pos.lng << endl;
     IntPos thisGrid = mapSet->convertToIntPos(tra[rank].pos.lat, tra[rank].pos.lng);
-    cout << "ThisGrid index: " << thisGrid.x << ", " << thisGrid.y << endl;
+    //cout << "ThisGrid index: " << thisGrid.x << ", " << thisGrid.y << endl;
     candidateGrid.push_back(thisGrid);
     int cnt = 1;
     bool canFound = true;
@@ -222,14 +222,14 @@ void Trajectory::generateOnePointCandidateEdge(int rank){//生成一个点附近
         }
         cnt++;
     }
-    cout << "Grid Generate done" << endl;
+  //  cout << "Grid Generate done" << endl;
     //至此grid候选集生成完毕
     int size = (int)candidateGrid.size();//下面为求并集的部分
     unordered_map<int, int> mapEdge;
     for(int i = 0; i < size; i++){
-        cout << "grid index x: " << candidateGrid[i].x << ", grid index y: " << candidateGrid[i].y << endl;
+    //    cout << "grid index x: " << candidateGrid[i].x << ", grid index y: " << candidateGrid[i].y << endl;
         int sizeE = (int)mapSet->grid[candidateGrid[i].x][candidateGrid[i].y].edge.size();
-        cout << "sizeE: " << sizeE << endl;
+      //  cout << "sizeE: " << sizeE << endl;
         for(int j = 0; j < sizeE; j++){
             if(mapEdge.count(mapSet->grid[candidateGrid[i].x][candidateGrid[i].y].edge[j].rank) == 0){
                 mapEdge[mapSet->grid[candidateGrid[i].x][candidateGrid[i].y].edge[j].rank] = 1;
@@ -240,16 +240,16 @@ void Trajectory::generateOnePointCandidateEdge(int rank){//生成一个点附近
                     tempE.dis = 1;
                 else
                     tempE.dis = tempE.dis / DMAX;
-                cout << "tempE:" << tempE.dis << endl;
+      //          cout << "tempE:" << tempE.dis << endl;
                 candidateEdge[rank].push_back(tempE);
             }
         }
     }
-    cout << "Begin sort" << endl;
+    //cout << "Begin sort" << endl;
     int sizeC = (int)candidateEdge[rank].size();
     sort(candidateEdge[rank].begin(), candidateEdge[rank].begin() + sizeC, cmpEdgeDis);
     
-    cout << "check on the same road" << endl;
+    //cout << "check on the same road" << endl;
     int finalSize = sizeC > S ? S : sizeC;
     oriCandidateEdgeNumber[rank] = finalSize;
     CandidateEdgeNumberSC[rank] = finalSize;
@@ -324,13 +324,13 @@ void Trajectory::addPos(DoublePos pos, int direct){
 
 void Trajectory::fileAddPos(string file){//从文件中添加
     FILE* fs = fopen(file.c_str(), "rb");
-    printf("open file %s\n", file.c_str());
+    //printf("open file %s\n", file.c_str());
     double lat, lng;
     double direct;
     char line[100];
     fgets(line, 100, fs);
     while (sscanf(line, "%lf %lf %lf", &lng, &lat, &direct) > 0) {
-        printf("%lf %lf %lf\n", lat, lng, direct);
+        //printf("%lf %lf %lf\n", lat, lng, direct);
         DoublePos temp;
         temp.lat = lat, temp.lng = lng;
         addPos(temp, direct);
@@ -339,7 +339,7 @@ void Trajectory::fileAddPos(string file){//从文件中添加
         }
     }
     fclose(fs);
-    cout << "stop addPos" << endl;
+    //cout << "stop addPos" << endl;
     T = (int)tra.size();
     cout << T << endl;
     tempRoute = new int[T];
@@ -348,7 +348,7 @@ void Trajectory::fileAddPos(string file){//从文件中添加
     }
     oriCandidateEdgeNumber = std::vector<int>(T, 0);
     CandidateEdgeNumberSC = std::vector<int>(T, 0);
-    cout << "End" << endl;
+    //cout << "End" << endl;
     //    scanf("%lf %lf", &lat, &lng);
     //    fdopen(origin_stdin, "r");
 }

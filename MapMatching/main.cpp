@@ -45,7 +45,7 @@ void testSingleCandidate(Map* map) {
         maxPoint = maxPoint < pointSize ? pointSize : maxPoint;
         minPoint = minPoint > pointSize ? pointSize : minPoint;
         totalPoint += pointSize;
-        cout << "Begin Generate" << endl;
+     //   cout << "Begin Generate" << endl;
         test.generateCandidateEdge();
         useSingleCandidate += test.getCandidateEdgeNumberSC();
         notSingleCandidate += test.getOriCandidateNumber();
