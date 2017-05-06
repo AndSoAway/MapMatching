@@ -10,10 +10,8 @@ trajectory_generated.o: trajectory_generated.cpp
 	g++ -std=c++11 -c trajectory_generated.cpp 
 TR_SIM.o: TR_SIM.cpp TR_SIM.hpp
 	g++ -std=c++11 -c TR_SIM.cpp
-trajectory.o: trajectory.cpp trajectory.h distance.o Route.o trajectory_generated.o \
-	TR_SIM.o
-	g++ -std=c++11 -c trajectory.cpp trajectory.h distance.o Route.o trajectory_generated.o \
-	TR_SIM.o
+trajectory.o: trajectory.cpp trajectory.h 
+	g++ -std=c++11 -c trajectory.cpp trajectory.h
 map.o: map.cpp map.hpp
 	g++ -std=c++11 -c map.cpp
 RouteWithSima.o: RouteWithSima.cpp RouteWithSima.hpp
