@@ -326,7 +326,9 @@ void Trajectory::fileAddPos(string file){//从文件中添加
         DoublePos temp;
         temp.lat = lat, temp.lng = lng;
         addPos(temp, direct);
-        fgets(line, 100, fs);
+        if(fgets(line, 100, fs) == NULL) {
+            break;
+        }
     }
     fclose(fs);
     cout << "stop addPos" << endl;
