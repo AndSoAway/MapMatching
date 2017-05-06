@@ -181,6 +181,7 @@ bool Trajectory::ifAllEdgeAroundPointIsTheSameRoad(int rank){//判断所有的�
 }
 
 void Trajectory::generateOnePointCandidateEdge(int rank){//生成一个点附近的候选集
+    cout << "Generate" << rank << endl;
     vector<IntPos> candidateGrid;
     candidateGrid.clear();
     IntPos thisGrid = mapSet->convertToIntPos(tra[rank].pos.lat, tra[rank].pos.lng);
@@ -219,6 +220,7 @@ void Trajectory::generateOnePointCandidateEdge(int rank){//生成一个点附近
         }
         cnt++;
     }
+    cout << "Grid Generate done" << endl;
     //至此grid候选集生成完毕
     int size = (int)candidateGrid.size();//下面为求并集的部分
     unordered_map<int, int> mapEdge;
@@ -241,7 +243,7 @@ void Trajectory::generateOnePointCandidateEdge(int rank){//生成一个点附近
     int sizeC = (int)candidateEdge[rank].size();
     sort(candidateEdge[rank].begin(), candidateEdge[rank].begin() + sizeC, cmpEdgeDis);
     
-    
+    cout << "check on the same road" << endl;
     int finalSize = sizeC > S ? S : sizeC;
     oriCandidateEdgeNumber[rank] = finalSize;
     CandidateEdgeNumberSC[rank] = finalSize;
