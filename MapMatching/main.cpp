@@ -34,7 +34,7 @@ void testSingleCandidate(Map* map) {
     double useSingleCandidate = 0;
     double notSingleCandidate = 0;
     double maxPoint = -1;
-    double minPoint = 10000;
+    double minPoint = 1000;
     double totalPoint = 0;
     double averagePoint = 0;
     for (int i = 1; i <= fileNumber; ++i) {
