@@ -341,7 +341,7 @@ void Trajectory::fileAddPos(string file){//从文件中添加
     fclose(fs);
     //cout << "stop addPos" << endl;
     T = (int)tra.size();
-    cout << T << endl;
+    //cout << T << endl;
     tempRoute = new int[T];
     for(int i = 0; i < T - 1; i++){
         lenT += distance2meter(tra[i].pos.lat, tra[i].pos.lng, tra[i + 1].pos.lat, tra[i + 1].pos.lng);

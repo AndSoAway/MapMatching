@@ -49,6 +49,7 @@ void testSingleCandidate(Map* map) {
         test.generateCandidateEdge();
         useSingleCandidate += test.getCandidateEdgeNumberSC();
         notSingleCandidate += test.getOriCandidateNumber();
+        cout << useSingleCandidate << ", " << notSingleCandidate << endl;
     }
     averagePoint = totalPoint / fileNumber;
     cout << "SC: " << useSingleCandidate << endl;
