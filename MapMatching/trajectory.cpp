@@ -322,6 +322,7 @@ void Trajectory::fileAddPos(string file){//从文件中添加
     char line[100];
     fgets(line, 100, fs);
     while (sscanf(line, "%lf %lf %lf", &lat, &lng, &direct) > 0) {
+        printf("%lf %lf %lf", lat, lng, direct);
         DoublePos temp;
         temp.lat = lat, temp.lng = lng;
         addPos(temp, direct);
