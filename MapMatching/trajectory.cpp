@@ -226,6 +226,7 @@ void Trajectory::generateOnePointCandidateEdge(int rank){//生成一个点附近
     unordered_map<int, int> mapEdge;
     for(int i = 0; i < size; i++){
         int sizeE = (int)mapSet->grid[candidateGrid[i].x][candidateGrid[i].y].edge.size();
+        cout << "sizeE: " << sizeE << endl;
         for(int j = 0; j < sizeE; j++){
             if(mapEdge.count(mapSet->grid[candidateGrid[i].x][candidateGrid[i].y].edge[j].rank) == 0){
                 mapEdge[mapSet->grid[candidateGrid[i].x][candidateGrid[i].y].edge[j].rank] = 1;
@@ -236,6 +237,7 @@ void Trajectory::generateOnePointCandidateEdge(int rank){//生成一个点附近
                     tempE.dis = 1;
                 else
                     tempE.dis = tempE.dis / DMAX;
+                cout << "tempE:" << tempE.dis << endl;
                 candidateEdge[rank].push_back(tempE);
             }
         }
