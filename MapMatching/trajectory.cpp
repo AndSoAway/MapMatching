@@ -276,7 +276,7 @@ double Trajectory::getCandidateEdgeNumberSC() {
     for (int i = 0; i < CandidateEdgeNumberSC.size(); ++i) {
         routeSize *= CandidateEdgeNumberSC[i];
     }
-    cout << "RouteSize: " << routeSize << endl;
+    //cout << "RouteSize: " << routeSize << endl;
     return routeSize;
 }
 
@@ -285,7 +285,7 @@ double Trajectory::getOriCandidateNumber() {
     for (int i = 0; i < oriCandidateEdgeNumber.size(); ++i) {
         routeSize *= oriCandidateEdgeNumber[i];
     }
-    cout << "RouteSize: " << routeSize << endl;
+    //cout << "RouteSize: " << routeSize << endl;
     return routeSize;
 }
 
