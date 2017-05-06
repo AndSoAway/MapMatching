@@ -240,6 +240,7 @@ void Trajectory::generateOnePointCandidateEdge(int rank){//生成一个点附近
             }
         }
     }
+    cout << "Begin sort" << endl;
     int sizeC = (int)candidateEdge[rank].size();
     sort(candidateEdge[rank].begin(), candidateEdge[rank].begin() + sizeC, cmpEdgeDis);
     
