@@ -184,7 +184,9 @@ void Trajectory::generateOnePointCandidateEdge(int rank){//生成一个点附近
     cout << "Generate" << rank << endl;
     vector<IntPos> candidateGrid;
     candidateGrid.clear();
+    cout << "tra: " << tra[rank].pos.lat << ", " << tra[rank].pos.lng << endl;
     IntPos thisGrid = mapSet->convertToIntPos(tra[rank].pos.lat, tra[rank].pos.lng);
+    cout << "ThisGrid index: " << thisGrid.x << ", " << thisGrid.y << endl;
     candidateGrid.push_back(thisGrid);
     int cnt = 1;
     bool canFound = true;
