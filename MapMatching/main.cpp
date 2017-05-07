@@ -41,6 +41,9 @@ void simulate(Map* map) {
         if (pointSize >= 30)
             continue;
         validNumber++;
+        maxPoint = maxPoint < pointSize ? pointSize : maxPoint;
+        minPoint = minPoint > pointSize ? pointSize : minPoint;
+        totalPoint += pointSize;
         int chosen_point = (rand() % 15) * pointSize / 100;
         long long cur_useSC = pow(S, pointSize - chosen_point);
         long long cur_notSC = pow(S, pointSize);
