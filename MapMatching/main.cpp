@@ -53,8 +53,7 @@ void testSingleCandidate(Map* map) {
         test.generateCandidateEdge();
         double cur_useSC = test.getCandidateEdgeNumberSC();
         double cur_notSC = test.getOriCandidateNumber();
-        cout << cur_useSC <<  endl;
-        cout << cur_notSC << endl;
+        cout << pointSize << cur_useSC  << cur_notSC << endl;
         useSingleCandidate += cur_useSC;
         notSingleCandidate += cur_notSC;
      //   cout << useSingleCandidate << ", " << notSingleCandidate << endl;
