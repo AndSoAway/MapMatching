@@ -30,7 +30,7 @@ int main() {
 }
 
 void testSingleCandidate(Map* map) {
-    int fileNumber = 100000;
+    int fileNumber = 1000;
     double useSingleCandidate = 0;
     double notSingleCandidate = 0;
     double maxPoint = -1;
@@ -53,6 +53,8 @@ void testSingleCandidate(Map* map) {
         test.generateCandidateEdge();
         double cur_useSC = test.getCandidateEdgeNumberSC();
         double cur_notSC = test.getOriCandidateNumber();
+        cout << cur_useSC <<  endl;
+        cout << cur_notSC << endl;
         useSingleCandidate += cur_useSC;
         notSingleCandidate += cur_notSC;
      //   cout << useSingleCandidate << ", " << notSingleCandidate << endl;
