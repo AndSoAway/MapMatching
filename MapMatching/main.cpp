@@ -38,7 +38,7 @@ void simulate(Map* map) {
         Trajectory test(map);
         test.fileAddPos(filePath.c_str());
         int pointSize = test.getTraSize();
-        if (pointSize >= 30)
+        if (pointSize >= 25)
             continue;
         validNumber++;
         maxPoint = maxPoint < pointSize ? pointSize : maxPoint;
