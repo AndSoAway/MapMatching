@@ -271,7 +271,7 @@ void Trajectory::generateOnePointCandidateEdge(int rank){//生成一个点附近
     }
 }
 
-double Trajectory::getCandidateEdgeNumberSC() {
+long long Trajectory::getCandidateEdgeNumberSC() {
     double routeSize = 1;
     for (int i = 0; i < CandidateEdgeNumberSC.size(); ++i) {
         routeSize *= CandidateEdgeNumberSC[i];
@@ -280,7 +280,7 @@ double Trajectory::getCandidateEdgeNumberSC() {
     return routeSize;
 }
 
-double Trajectory::getOriCandidateNumber() {
+long long Trajectory::getOriCandidateNumber() {
     double routeSize = 1;
     for (int i = 0; i < oriCandidateEdgeNumber.size(); ++i) {
         routeSize *= oriCandidateEdgeNumber[i];

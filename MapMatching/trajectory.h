@@ -55,8 +55,8 @@ public:
     
     
     
-    double getCandidateEdgeNumberSC();
-    double getOriCandidateNumber();
+    long long getCandidateEdgeNumberSC();
+    long long getOriCandidateNumber();
     
     //void getGenerateTraj();//由候选路径的小边生成最终的候选路径
     void getCandidateR(int rank);//在基础策略之后生成候选集，即generateCandidateEdge之后执行

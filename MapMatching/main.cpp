@@ -31,8 +31,8 @@ int main() {
 
 void testSingleCandidate(Map* map) {
     int fileNumber = 1000;
-    double useSingleCandidate = 0;
-    double notSingleCandidate = 0;
+    long long useSingleCandidate = 0;
+    long long notSingleCandidate = 0;
     double maxPoint = -1;
     double minPoint = 1000;
     double totalPoint = 0;
@@ -51,9 +51,9 @@ void testSingleCandidate(Map* map) {
         totalPoint += pointSize;
      //  cout << "Begin Generate" << endl;
         test.generateCandidateEdge();
-        double cur_useSC = test.getCandidateEdgeNumberSC();
-        double cur_notSC = test.getOriCandidateNumber();
-        cout << pointSize << cur_useSC  << cur_notSC << endl;
+        long long cur_useSC = test.getCandidateEdgeNumberSC();
+        long long cur_notSC = test.getOriCandidateNumber();
+        cout << pointSize << " " << cur_useSC << " " << cur_notSC << endl;
         useSingleCandidate += cur_useSC;
         notSingleCandidate += cur_notSC;
      //   cout << useSingleCandidate << ", " << notSingleCandidate << endl;
