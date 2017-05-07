@@ -32,7 +32,7 @@ void simulate(Map* map) {
     int totalPoint = 0;
     int averagePoint = 0;
     
-    int validNumber = 0;
+    int validNumber = 1;
     for (int i = 1; validNumber <= fileNumber; ++i) {
         string filePath = "./trajfile/" + to_string(i) + ".csv";
         Trajectory test(map);
