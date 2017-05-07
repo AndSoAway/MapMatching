@@ -55,7 +55,7 @@ void simulate(Map* map) {
     cout << "SC: " << useSingleCandidate << endl;
     cout << "Ori: " << notSingleCandidate << endl;
     cout << "MaxPoint: " << maxPoint << "MinPoint: " << minPoint << "averagePoint: " << averagePoint << endl;
-
+    cout << "TotalPoint: " << totalPoint << endl;
 }
 
 int main() {
