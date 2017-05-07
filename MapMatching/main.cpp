@@ -38,7 +38,7 @@ void simulate(Map* map) {
         Trajectory test(map);
         test.fileAddPos(filePath.c_str());
         int pointSize = test.getTraSize();
-        if (pointSize >= 50)
+        if (pointSize >= 30)
             continue;
         validNumber++;
         int chosen_point = (rand() % 15) * pointSize / 100;
