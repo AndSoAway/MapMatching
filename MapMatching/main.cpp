@@ -49,7 +49,7 @@ void simulate(Map* map) {
         long long cur_notSC = pow(S, pointSize);
         cout << pointSize << " " << cur_useSC << " " << cur_notSC << endl;
         useSingleCandidate += cur_useSC;
-        notSingleCandidate += cur_notSC;
+        notSingleCandidate += cur_notSC / 100;
     }
     averagePoint = totalPoint / fileNumber;
     cout << "SC: " << useSingleCandidate << "AverageSC: " << useSingleCandidate / fileNumber << endl;
