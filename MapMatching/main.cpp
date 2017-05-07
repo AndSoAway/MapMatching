@@ -52,8 +52,8 @@ void simulate(Map* map) {
         notSingleCandidate += cur_notSC;
     }
     averagePoint = totalPoint / fileNumber;
-    cout << "SC: " << useSingleCandidate << endl;
-    cout << "Ori: " << notSingleCandidate << endl;
+    cout << "SC: " << useSingleCandidate << "AverageSC: " << useSingleCandidate / fileNumber << endl;
+    cout << "Ori: " << notSingleCandidate << "AverageOri: " << notSingleCandidate / fileNumber << endl;
     cout << "MaxPoint: " << maxPoint << "MinPoint: " << minPoint << "averagePoint: " << averagePoint << endl;
     cout << "TotalPoint: " << totalPoint << endl;
 }
