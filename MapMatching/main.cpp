@@ -8,16 +8,52 @@
 
 #include <iostream>
 #include <vector>
+#include <ctime>
+#include <cstdlib>
 
 #include "trajectory.h"
 #include "Route.hpp"
 #include "RouteWithSima.hpp"
 #include "map.hpp"
 #include "trajectory.h"
+#include <cmath>
 
 using namespace std;
 
 void testSingleCandidate(Map* map);
+
+void simulate(Map* map) {
+    srand((unsigned)time(NULL));
+    int fileNumber = 10000;
+    long long useSingleCandidate = 0;
+    long long notSingleCandidate = 0;
+    int maxPoint = -1;
+    int minPoint = 1000;
+    int totalPoint = 0;
+    int averagePoint = 0;
+    
+    int validNumber = 0;
+    for (int i = 1; validNumber <= fileNumber; ++i) {
+        string filePath = "./trajfile/" + to_string(i) + ".csv";
+        Trajectory test(map);
+        test.fileAddPos(filePath.c_str());
+        int pointSize = test.getTraSize();
+        if (pointSize >= 50)
+            continue;
+        validNumber++;
+        int chosen_point = (rand() % 15) * pointSize / 100;
+        long long cur_useSC = pow(S, pointSize - chosen_point);
+        long long cur_notSC = pow(S, pointSize);
+        cout << pointSize << " " << cur_useSC << " " << cur_notSC << endl;
+        useSingleCandidate += cur_useSC;
+        notSingleCandidate += cur_notSC;
+    }
+    averagePoint = totalPoint / fileNumber;
+    cout << "SC: " << useSingleCandidate << endl;
+    cout << "Ori: " << notSingleCandidate << endl;
+    cout << "MaxPoint: " << maxPoint << "MinPoint: " << minPoint << "averagePoint: " << averagePoint << endl;
+
+}
 
 int main() {
     cout << "Hello, World!\n";
@@ -25,7 +61,8 @@ int main() {
     map->fileAddNode("BJ.cnode");
     map->fileAddEdge("BJ.edge");
     cout << "End Insert Map" << endl;
-    testSingleCandidate(map);
+//    testSingleCandidate(map);
+    simulate(map);
     return 0;
 }
 
